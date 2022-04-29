@@ -33,7 +33,7 @@ Can be used in "FemtoRV" (a minimalistic RISC-V CPU), or to read data in the "iC
 ## Test hardware
 - iCE40LP1KCM36 FPGA (iCESugar-nano FPGA development board).
 
-##Statistics
+## Statistics
 Building report for `spi_w25q_read_32b()` in a test bench (`top.v`):
 
 ```
