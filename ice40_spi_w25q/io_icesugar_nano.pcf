@@ -1,4 +1,4 @@
-# BOARD PINS for "iCESugar-nano (github.com/wuxx/icesugar-nano)"
+# Board pins for "iCESugar-nano (github.com/wuxx/icesugar-nano)"
 
 # FPGA pins:
 set_io CLK D1
