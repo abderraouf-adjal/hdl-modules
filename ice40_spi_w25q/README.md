@@ -2,6 +2,34 @@
 Read 32-bits from serial flash memory IC (W25Qxxx) using standard SPI mode (SCK, /CS, SDI, SDO).
 Can be used in "FemtoRV" (a minimalistic RISC-V CPU), or to read data in the "iCESugar-nano" FPGA development board.
 
+## Build test bench on hardware
+```
+% make clean && make build
+% icesprog build/top.bin
+```
+
+## Build test bench simulation
+```
+% make clean && make verify
+% gtkwave build_sim/icesnano_spi_tb.vcd
+```
+
+## Lint the module
+```
+% make lint
+```
+
+## Read bytes from the flash IC
+```
+% icesprog -r -o 0x00020000 -l 4 ; echo "" ; hexdump 4 ; rm 4
+```
+
+## Misc notes
+
+- The `-s` in `icepack -s` is to wake-up the flash IC from sleeping after FPGA bitstream load, very important.
+- The IC W25Qxxx need a delay of `tRES1=3uS` (in W25Qxxx datasheet) after waking up from power-down command to be functional.
+- For IC W25Qxxx, `spi_sck` max frequency is **50MHz** in standard SPI mode.
+
 ## Test hardware
 - iCE40LP1KCM36 FPGA (iCESugar-nano FPGA development board).
 

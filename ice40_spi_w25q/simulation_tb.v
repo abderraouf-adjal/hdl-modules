@@ -1,9 +1,8 @@
-// Testbench for icesnano_spi.v
 `include "spi_w25q_read_32b.v"
 
 `timescale 10ns/1ns // time-unit/precision
 
-module icesnano_spi_tb;
+module simulation_tb;
     // global control
     reg clk; // global clock, rising edge
     
@@ -33,8 +32,8 @@ module icesnano_spi_tb;
     
     initial
     begin
-        $dumpfile("icesnano_spi_tb.vcd"); // Dump for GTKWave tool
-        $dumpvars(0, icesnano_spi_tb);
+        $dumpfile("simulation_tb.vcd"); // Dump for GTKWave tool
+        $dumpvars(0, simulation_tb);
         spi_cipo = 1'bZ;
         mem_addr = 24'h10000;
         start = 1'b0;

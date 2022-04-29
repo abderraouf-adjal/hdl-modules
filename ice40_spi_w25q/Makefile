@@ -1,5 +1,5 @@
 top_file = top
-testbench_top_file = icesnano_spi_tb
+testbench_top_file = simulation_tb
 pcf_file = io_icesugar_nano.pcf
 build_dir = build
 sim_dir = build_sim
@@ -10,7 +10,6 @@ ${warning iCELink path: $(ICELINK_DIR)}
 # NOTE: The "-s" in "icepack -s" is to wake-up the flash IC from sleeping after FPGA bitstream load, very important.
 # NOTE: The IC W25Qxxx need a delay of "tRES1=3uS" after waking up from power-down command to be functional.
 # NOTE: For IC W25Qxxx, spi_sck max frequency is 50MHz in standard SPI mode.
-# NOTE: read from flash IC in icesugar FPGA: icesprog -r -o 0x00010000 -l 4 ; echo ""; hexdump 4 ; rm 4
 
 build:
 	mkdir -p $(build_dir)
@@ -21,7 +20,7 @@ build:
 
 verify:
 	mkdir -p $(sim_dir)
-	iverilog -g2005 -Wall -Winfloop -Wfloating-nets -s icesnano_spi_tb -o $(sim_dir)/$(testbench_top_file).vvp $(testbench_top_file).v
+	iverilog -g2005 -Wall -Winfloop -Wfloating-nets -s $(testbench_top_file) -o $(sim_dir)/$(testbench_top_file).vvp $(testbench_top_file).v
 	(cd $(sim_dir) && vvp $(testbench_top_file).vvp)
 	
 lint:
