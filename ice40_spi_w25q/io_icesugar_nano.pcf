@@ -1,0 +1,20 @@
+# BOARD PINS for "iCESugar-nano (github.com/wuxx/icesugar-nano)"
+
+# FPGA pins:
+set_io CLK D1
+set_io LED B6
+#set_io RX  A3
+#set_io TX  B3
+
+# Standard SPI pins to the flash memory IC W25Qxxx
+set_io SPI_CS_N D5
+set_io SPI_CIPO F5
+set_io SPI_COPI E4
+set_io SPI_CLK  E5
+
+# Standard SPI pins to test using a logic analyzer
+set_io DSPI_CS_N B4 # ch 1
+set_io DSPI_CIPO B5 # ch 3
+set_io DSPI_COPI E1 # ch 5
+set_io DSPI_CLK  B1 # ch 7
+
